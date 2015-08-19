@@ -10,7 +10,7 @@
         android:layout_height="wrap_content" />
 
 
-    <!-- TODO Return button does not appear, problems with visualizer -->
+    <!-- TODO Return button does not appear, problems with visualizer :) -->
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
