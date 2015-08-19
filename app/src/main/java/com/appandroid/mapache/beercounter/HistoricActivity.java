@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -29,11 +30,14 @@ public class HistoricActivity extends AppCompatActivity {
 
 
         TextView textView = new TextView(this);
-        textView.setTextSize(40);
-        textView.setText(historic_list.get(0));
-
+        textView.setTextSize(15);
+        for (int i=0; i<historic_list.size();i++){
+            textView.append(historic_list.get(i));
+            textView.append("\n");
+        }
         setContentView(textView);
     }
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
