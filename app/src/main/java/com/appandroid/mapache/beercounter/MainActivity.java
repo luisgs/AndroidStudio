@@ -20,7 +20,6 @@ import java.util.List;
 public class MainActivity extends Activity implements OnClickListener {
 
     Button btn1;
-    Button btn2;
     Button btn3;
     Button b_historic;
     TextView textTitle;
@@ -35,7 +34,6 @@ public class MainActivity extends Activity implements OnClickListener {
         setContentView(R.layout.activity_main);
 
         btn1 = (Button)findViewById(R.id.addButton);
-        btn2 = (Button)findViewById(R.id.subtractButton);
         btn3 = (Button)findViewById(R.id.resetButton);
         //b_historic = (Button)findViewById(R.id.historicButton);
         scoreText = (EditText)findViewById(R.id.editText);
@@ -43,7 +41,6 @@ public class MainActivity extends Activity implements OnClickListener {
 
         //---set on click listeners on the buttons-----
         btn1.setOnClickListener(this);
-        btn2.setOnClickListener(this);
         btn3.setOnClickListener(this);
         //b_historic.setOnClickListener(this);
 
@@ -58,11 +55,6 @@ public class MainActivity extends Activity implements OnClickListener {
             scoreText.setText(Integer.toString(counter));
             scoreText.setBackgroundColor(Color.CYAN);
             list.add(String.valueOf(new Date()));
-        }
-        if (v == btn2){
-            counter--;
-            scoreText.setText(Integer.toString(counter));
-            scoreText.setBackgroundColor(Color.GREEN);
         }
 
         if (v == btn3) {

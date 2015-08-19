@@ -19,33 +19,27 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:ems="10" >
+        android:ems="10"
+        android:layout_above="@+id/addButton"
+        android:layout_alignParentTop="true">
 
     </EditText>
-
-    <Button android:id="@+id/subtractButton"
-        android:layout_width="wrap_content"
-        android:layout_height="100dp"
-        android:layout_above="@+id/resetButton"
-        android:layout_alignLeft="@+id/addButton"
-        android:layout_alignRight="@+id/addButton"
-        android:text="@string/subtractone"></Button>
 
     <Button android:id="@+id/addButton"
         android:layout_width="wrap_content"
         android:layout_height="100dp"
-        android:layout_above="@+id/subtractButton"
         android:layout_alignParentLeft="true"
         android:layout_alignRight="@+id/editText"
-        android:text="@string/addone"></Button>
+        android:text="@string/addone"
+        android:layout_above="@+id/resetButton"></Button>
 
     <Button android:id="@+id/resetButton"
         android:layout_width="wrap_content"
         android:layout_height="60dp"
         android:layout_above="@+id/Historic"
-        android:layout_alignLeft="@+id/subtractButton"
-        android:layout_alignRight="@+id/subtractButton"
-        android:text="@string/reset"></Button>
+        android:text="@string/reset"
+        android:layout_alignLeft="@+id/addButton"
+        android:layout_alignRight="@+id/addButton"></Button>
 
     <Button android:id="@+id/Historic"
         android:layout_width="wrap_content"
