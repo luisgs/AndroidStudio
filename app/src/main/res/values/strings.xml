@@ -4,10 +4,10 @@
     <string name="action_settings">Settings</string>
     <string name="intro">Total drinks!</string>
     <string name="addone">+1</string>
-    <string name="subtractone">-1</string>
     <string name="reset">RESET SCORE</string>
     <string name="historic">Historic</string>
     <string name="title_activity_historic">HistoricActivity</string>
+    <string name="Return">Return</string>
 
     <string name="hello_world">Hello world!</string>
 

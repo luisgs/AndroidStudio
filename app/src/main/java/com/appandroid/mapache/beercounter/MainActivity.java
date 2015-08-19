@@ -1,5 +1,6 @@
 package com.appandroid.mapache.beercounter;
 
+import android.app.Application;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.TypedValue;
@@ -21,12 +22,12 @@ public class MainActivity extends Activity implements OnClickListener {
 
     Button btn1;
     Button btn3;
-    Button b_historic;
+
     TextView textTitle;
     EditText scoreText;
-    int counter = 0;
-    List<String> list = new ArrayList<String>();
-    Date dt;
+    //private List<String> list = new ArrayList<String>();
+    GlobalVars sharedData = GlobalVars.getInstance();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +36,8 @@ public class MainActivity extends Activity implements OnClickListener {
 
         btn1 = (Button)findViewById(R.id.addButton);
         btn3 = (Button)findViewById(R.id.resetButton);
-        //b_historic = (Button)findViewById(R.id.historicButton);
+
+
         scoreText = (EditText)findViewById(R.id.editText);
         textTitle = (TextView)findViewById(R.id.myTextTitle);
 
@@ -45,26 +47,32 @@ public class MainActivity extends Activity implements OnClickListener {
         //b_historic.setOnClickListener(this);
 
         // change font size of the text
-        textTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP, 24);
+        textTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP, 35);
     }
 
     @Override
     public void onClick(View v) {
+
         if (v == btn1){
-            counter++;
-            scoreText.setText(Integer.toString(counter));
-            scoreText.setBackgroundColor(Color.CYAN);
-            list.add(String.valueOf(new Date()));
+            sharedData.add_1();
+            if (sharedData.getCounter() > 7)
+                scoreText.setBackgroundColor(Color.RED);
+            else if (sharedData.getCounter() > 4)
+                scoreText.setBackgroundColor(Color.YELLOW);
+            else
+                scoreText.setBackgroundColor(Color.CYAN);
+            //scoreText.setText(Integer.toString(counter));
+            scoreText.setText(Integer.toString(sharedData.getCounter()));
+           // list.add(String.valueOf(new Date()));
+            sharedData.setHistoricList();
         }
 
         if (v == btn3) {
-            if (counter != 0) {
-                scoreText.setText(list.get(counter-1));
-            } else {
-                counter = 0;
-                scoreText.setText(Integer.toString(counter));
-            }
-            scoreText.setBackgroundColor(Color.RED);
+            sharedData.resetCounter();
+            scoreText.setText(Integer.toString(sharedData.getCounter()));
+            //list.clear();
+            sharedData.resetHistoricList();
+            scoreText.setBackgroundColor(Color.GREEN);
         }
     }
 
@@ -75,7 +83,7 @@ public class MainActivity extends Activity implements OnClickListener {
         Intent intent = new Intent(this, HistoricActivity.class);
         // we send our list of historic entries.
 
-        intent.putStringArrayListExtra("historic_list", (ArrayList<String>) list);
+        intent.putStringArrayListExtra("historic_list", (ArrayList<String>) sharedData.getHistoricList());
 
         startActivity(intent);
     }
