@@ -38,8 +38,8 @@ public class HistoricActivity extends AppCompatActivity {
 
         TextView textView = new TextView(this);
         textView = (EditText)findViewById(R.id.editText);
-        textView.setTextColor(Color.RED);
         textView.setTypeface(null, Typeface.BOLD);
+        textView.setTextColor(Color.GREEN);
         textView.setTextSize(15);
         for (int i=0; i< historic_list.size();i++){
             textView.append(historic_list.get(i));
@@ -47,7 +47,6 @@ public class HistoricActivity extends AppCompatActivity {
         }
         //setContentView(textView);
     }
-
 
     /** Called when user click on Historic Button */
     public void ReturnMain (View view) {
