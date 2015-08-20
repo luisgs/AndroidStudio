@@ -1,6 +1,9 @@
 package com.appandroid.mapache.beercounter;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.Typeface;
+import android.support.annotation.ColorInt;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -35,7 +38,8 @@ public class HistoricActivity extends AppCompatActivity {
 
         TextView textView = new TextView(this);
         textView = (EditText)findViewById(R.id.editText);
-
+        textView.setTextColor(Color.RED);
+        textView.setTypeface(null, Typeface.BOLD);
         textView.setTextSize(15);
         for (int i=0; i< historic_list.size();i++){
             textView.append(historic_list.get(i));
