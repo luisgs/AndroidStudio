@@ -40,6 +40,8 @@ public class MainActivity extends Activity implements OnClickListener {
 
         scoreText = (EditText)findViewById(R.id.editText);
 
+        scoreText.setTextSize(60);
+
         // print the current counter value from globalvars
         scoreText.setText(Integer.toString(sharedData.getCounter()));
         // coloured its field
@@ -62,6 +64,8 @@ public class MainActivity extends Activity implements OnClickListener {
             scoreText.setBackgroundColor(Color.RED);
         else if (sharedData.getCounter() > 4)
             scoreText.setBackgroundColor(Color.YELLOW);
+        else if (sharedData.getCounter() == 0)
+            scoreText.setBackgroundColor(Color.GREEN);
         else
             scoreText.setBackgroundColor(Color.CYAN);
     }
@@ -83,7 +87,7 @@ public class MainActivity extends Activity implements OnClickListener {
             scoreText.setText(Integer.toString(sharedData.getCounter()));
             //list.clear();
             sharedData.resetHistoricList();
-            scoreText.setBackgroundColor(Color.GREEN);
+            textField();
         }
     }
 
