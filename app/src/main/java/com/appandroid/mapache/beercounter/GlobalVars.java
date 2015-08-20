@@ -7,8 +7,8 @@ import java.util.Date;
 import java.util.List;
 
 public class GlobalVars extends Application {
-    int counter = 0;
-    List<String> list = new ArrayList<String>();
+    private int counter=0;
+    private List<String> list = new ArrayList<String>();
 
     private static GlobalVars instance = new GlobalVars();
 

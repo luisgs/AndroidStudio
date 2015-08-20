@@ -25,7 +25,7 @@ public class MainActivity extends Activity implements OnClickListener {
 
     TextView textTitle;
     EditText scoreText;
-    //private List<String> list = new ArrayList<String>();
+    // Calling for the global variables!
     GlobalVars sharedData = GlobalVars.getInstance();
 
 
@@ -39,6 +39,12 @@ public class MainActivity extends Activity implements OnClickListener {
 
 
         scoreText = (EditText)findViewById(R.id.editText);
+
+        // print the current counter value from globalvars
+        scoreText.setText(Integer.toString(sharedData.getCounter()));
+        // coloured its field
+        textField();
+
         textTitle = (TextView)findViewById(R.id.myTextTitle);
 
         //---set on click listeners on the buttons-----
@@ -50,17 +56,22 @@ public class MainActivity extends Activity implements OnClickListener {
         textTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP, 35);
     }
 
+    // Print score field depending my standards :)
+    public void textField () {
+        if (sharedData.getCounter() > 7)
+            scoreText.setBackgroundColor(Color.RED);
+        else if (sharedData.getCounter() > 4)
+            scoreText.setBackgroundColor(Color.YELLOW);
+        else
+            scoreText.setBackgroundColor(Color.CYAN);
+    }
+
     @Override
     public void onClick(View v) {
 
         if (v == btn1){
             sharedData.add_1();
-            if (sharedData.getCounter() > 7)
-                scoreText.setBackgroundColor(Color.RED);
-            else if (sharedData.getCounter() > 4)
-                scoreText.setBackgroundColor(Color.YELLOW);
-            else
-                scoreText.setBackgroundColor(Color.CYAN);
+            textField();
             //scoreText.setText(Integer.toString(counter));
             scoreText.setText(Integer.toString(sharedData.getCounter()));
            // list.add(String.valueOf(new Date()));
